@@ -14,12 +14,13 @@ wages<-wages_table%>%
   mutate(WeeklySalary=as.numeric(WeeklySalary))
 
 
-wages%>%
+p<-wages%>%
   ggplot(aes(AnnualSalary))+
-  geom_histogram()+
+  geom_histogram(bins = 100)+
   scale_x_continuous(labels=comma)+
   theme_minimal()+
   labs(x="Annual Salary", 
        y="Number of players", 
        title="Distribution of player wages)")
 
+print(p)
