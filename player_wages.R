@@ -2,6 +2,8 @@ rm(list=ls())
 
 library(rvest)
 library(dplyr)
+library(stringr)
+library(ggplot2)
 
 site<-"https://www.spotrac.com/epl"
 page<-"payroll/"
@@ -32,9 +34,13 @@ names(t)<-team
 names(t[[1]])
 
 t<-lapply(t, setNames, c("Player", "Position", "Age", "empty", 
-                         "Annual Salary", "Weekly Salary"))
+                         "AnnualSalary", "WeeklySalary"))
 
 
-wages<-do.call(bind_rows, t)
-wages<-wages%>%select(-empty)
+wages_table<-do.call(bind_rows, t)
+
+  
+
+
+
 
