@@ -38,12 +38,12 @@ ceo_pay<-ceo_pay%>%
 ceo_pay[,3:4]<-lapply(ceo_pay[,3:4], as.numeric)
 
 
-ceo_pay%>%
+graph_c<-ceo_pay%>%
   ggplot(aes(realised_compensation))+
   geom_histogram(bins = 20)+
   scale_x_continuous(labels=comma)+
   theme_minimal()+
   labs(x="Granted Compensation", 
        y="Number of CEOs", 
-       title="Distribution of CEO wages)")
+       title="Distribution of CEO wages")
 
